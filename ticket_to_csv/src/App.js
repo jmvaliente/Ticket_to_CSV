@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axiosConfig from '../src/services/axios'
 import Ticket from '../src/components/Ticket'
+import extract from '../src/services/extract'
 import './App.css';
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
           <input type="file" name="image" onChange={onChange} />
           <button type="submit">Upload</button>
         </form>
+        <button onClick={() => extract(data)}>Extraer Datos</button>
         <div>
           {data.map((ticket, index) => <Ticket ticket={ticket} index={index} key={index} />)}
         </div>
